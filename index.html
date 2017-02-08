@@ -1,0 +1,34 @@
+---
+layout: default
+title: Animation + Design
+---
+
+<section id="work">
+   {% assign port = site.portfolio | sort: 'importance' %}
+    {% for portfolio in port %}
+    <article id="{{ portfolio.id_name }}" class="{{ portfolio.category }} {{ portfolio.tag }}" hidden>
+    <a href="{{ portfolio.url }}" class="gif-png">
+      <div class="image">
+        <img src="{{ portfolio.image_hero }}" alt="" class="preview">
+      </div>
+      <div class="info">
+        <h1>{{ portfolio.title }}</h1>
+        {% if portfolio.subtitle %}
+          <h2>{{ portfolio.subtitle }}</h2>
+        {% endif %}
+      </div>
+      {% if portfolio.laruel %}
+        <div class="laruel">
+          <img src="resources/img/projects/sirens-logo.svg">
+        </div>
+      {% endif %}
+      {% if portfolio.image_logo %}
+        <div class="logo">
+          <img id="madebyLogo" src="{{ portfolio.image_logo }}">
+        </div>
+      {% endif %}
+    </a>
+    </article>
+  {% endfor %}
+
+</section>
